@@ -13,4 +13,4 @@ documentation = "https://docs.rs/rsgenetic/"
 [dependencies]
 rand = "0.3"
 rayon = "1.0.0"
-instant = "0.1"
+instant =  { version = "0.1", features = [ "wasm-bindgen" ] }
