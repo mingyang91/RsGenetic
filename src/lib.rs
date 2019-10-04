@@ -195,3 +195,5 @@ pub mod sim;
 /// Contains code used by unit tests.
 #[cfg(test)]
 mod test;
+
+extern crate instant;

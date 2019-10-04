@@ -28,7 +28,7 @@ use pheno::Fitness;
 use pheno::Phenotype;
 use rand::Rng;
 use std::marker::PhantomData;
-use std::time::Instant;
+use instant::Instant;
 
 /// A sequential implementation of `::sim::Simulation`.
 /// The genetic algorithm is run in a single thread.
