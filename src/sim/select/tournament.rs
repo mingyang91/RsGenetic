@@ -17,6 +17,7 @@
 use super::*;
 use pheno::{Fitness, Phenotype};
 use rand::Rng;
+use rand::distributions::Uniform;
 
 /// Runs several tournaments, and selects best performing phenotypes from each tournament.
 #[derive(Copy, Clone, Debug)]
@@ -94,7 +95,7 @@ where
         for _ in 0..(self.count / 2) {
             let mut tournament: Vec<&T> = Vec::with_capacity(self.participants);
             for _ in 0..self.participants {
-                let index = rng.gen_range::<usize>(0, population.len());
+                let index = rng.sample(Uniform::new(0, population.len()));
                 tournament.push(&population[index]);
             }
             tournament.sort_by(|x, y| y.fitness().cmp(&x.fitness()));

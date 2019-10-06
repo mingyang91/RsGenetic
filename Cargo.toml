@@ -11,6 +11,6 @@ license = "MIT/Apache-2.0"
 documentation = "https://docs.rs/rsgenetic/"
 
 [dependencies]
-rand = "0.3"
+rand = "0.7"
 rayon = "1.0.0"
 instant =  { version = "0.1", features = [ "wasm-bindgen" ] }

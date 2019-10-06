@@ -29,6 +29,7 @@ use pheno::Phenotype;
 use rand::Rng;
 use std::marker::PhantomData;
 use instant::Instant;
+use rand::distributions::Uniform;
 
 /// A sequential implementation of `::sim::Simulation`.
 /// The genetic algorithm is run in a single thread.
@@ -186,7 +187,7 @@ where
     /// Kill off phenotypes using stochastic universal sampling.
     fn kill_off(&mut self, count: usize) {
         let ratio = self.population.len() / count;
-        let mut i = ::rand::thread_rng().gen_range::<usize>(0, self.population.len());
+        let mut i = ::rand::thread_rng().sample(Uniform::new(0, self.population.len()));
         for _ in 0..count {
             self.population.swap_remove(i);
             i += ratio;

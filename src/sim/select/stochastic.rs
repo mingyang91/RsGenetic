@@ -17,6 +17,7 @@
 use super::*;
 use pheno::{Fitness, Phenotype};
 use rand::Rng;
+use rand::distributions::Uniform;
 
 /// Selects phenotypes at random, starting from a random index and taking equidistant jumps.
 ///
@@ -55,7 +56,7 @@ where
 
         let ratio = population.len() / self.count;
         let mut result: Parents<&T> = Vec::new();
-        let mut i = ::rand::thread_rng().gen_range::<usize>(0, population.len());
+        let mut i = ::rand::thread_rng().sample(Uniform::new(0, population.len()));
         let mut selected = 0;
         while selected < self.count {
             result.push((
